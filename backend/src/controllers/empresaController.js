@@ -1,9 +1,10 @@
 const crypto = require('crypto');
 const connection  = require('../database/connection');
 module.exports = {
+
     async index(request, response)
     {
-        const empresas = await connection('empresas').select('*');
+        const empresas = await connection('empresas').select('*', request.body.id);
     
         return response.json(empresas);
     },
