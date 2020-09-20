@@ -2,10 +2,10 @@ const connection = require('../database/connection');
 
 module.exports = {
     async index(request, response){
-        //const id = request.body.id;
+        const id = request.body.id;
 
         const empresa  = await connection('empresa')
-        .where('id', request.body.id)
+        .where('id')
         .select('*');
 
         return response.json(empresa); 
